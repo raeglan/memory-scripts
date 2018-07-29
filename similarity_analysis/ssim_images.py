@@ -31,7 +31,7 @@ from skimage.measure import compare_ssim as ssim
 IMAGES_BASE_FILE = 'images/animals_blur_'
 FIRST_IMAGE_NUMBER = 1
 LAST_IMAGE_NUMBER = 28
-OUTPUT_FILE_NAME = 'similarity_blur.json'
+OUTPUT_FILE_NAME = './output/similarity_blur.json'
 
 
 def load_image_as_float(img_number):
