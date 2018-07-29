@@ -1,0 +1,8 @@
+{
+  "name": "data_mapping",
+  "version": "1.0.0",
+  "dependencies": {
+    "arraylist": "^0.1.0",
+    "firebase-admin": "latest"
+  }
+}
