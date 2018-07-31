@@ -192,3 +192,6 @@ async function handleSession(session, sessionNumber) {
         console.log("The file ", fileName, " was saved!");
     });
 }
+
+// MAPPING
+// 1.2=0.9, 1.3=0.4, ...

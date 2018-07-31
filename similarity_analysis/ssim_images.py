@@ -27,11 +27,12 @@ import numpy as np
 from skimage import img_as_float
 from skimage.io import imread
 from skimage.measure import compare_ssim as ssim
+from scipy import stats
 
 IMAGES_BASE_FILE = 'images/animals_blur_'
 FIRST_IMAGE_NUMBER = 1
 LAST_IMAGE_NUMBER = 28
-OUTPUT_FILE_NAME = './output/similarity_blur.json'
+OUTPUT_FILE_NAME = 'output/similarity_blur.json'
 
 
 def load_image_as_float(img_number):
@@ -75,5 +76,9 @@ for x in array_range:
         similarity_index = ssim(x_image, y_image, data_range=max_range - min_range)
         similarity_matrix[x, y] = similarity_index
 
+# Interpolation
+interpolated_array = np.interp(similarity_matrix, (similarity_matrix.min(), similarity_matrix.max()), (0, 1))
+
+# Saving the file
 with open(OUTPUT_FILE_NAME, 'w') as outfile:
-    json.dump(similarity_matrix.tolist(), outfile)
+    json.dump(interpolated_array.tolist(), outfile)
