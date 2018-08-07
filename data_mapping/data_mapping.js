@@ -208,8 +208,9 @@ async function handleSession(session, sessionNumber) {
     }
 
     const date = session.startTime;
-    const fileNumber = ("0" + (sessionNumber + START_FILE_NUMBER)).slice(-2); // START_No, 09, ..., 12, 13. And so on.
-    const fileName = `${date.getFullYear()}_${date.getMonth() + 1}_${date.getDate()}_${fileNumber}`;
+    const fileNumber = doubleDigitize(sessionNumber + START_FILE_NUMBER); // START_No, 09, ..., 12, 13. And so on.
+    const fileName =
+        `${date.getFullYear()}.${doubleDigitize(date.getMonth() + 1)}.${doubleDigitize(date.getDate())}_${fileNumber}`;
     fs.writeFile(DIR + fileName + ".txt", sessionText, function (err) {
         if (err) {
             return console.log(err);
@@ -217,4 +218,11 @@ async function handleSession(session, sessionNumber) {
 
         console.log("The file ", fileName, " was saved!");
     });
+}
+
+/**
+ * Makes any number a string containing double digits(with zero padding).
+ */
+function doubleDigitize(number) {
+    return ("0" + (number)).slice(-2)
 }
