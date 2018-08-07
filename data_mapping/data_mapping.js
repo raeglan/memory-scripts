@@ -17,8 +17,12 @@ db.settings(settings);
 
 // the maximum number of moves a game should have under that and we use 0 padding
 const GAME_LENGTH = 40;
+// the directory the logs should be saved om
 const DIR = "./logs/";
+// where the similarity matrix is located
 const SIMILARITY_MATRIX_FILE = "./similarity_blur.json";
+// At which number the log file names should start (this is useful if the first experiments were not recorded)
+const START_FILE_NUMBER = 2;
 
 // creates the folder specified if it doesn't exist.
 if (!fs.existsSync(DIR)) {
@@ -204,8 +208,8 @@ async function handleSession(session, sessionNumber) {
     }
 
     const date = session.startTime;
-    const fileNumber = ("0" + (sessionNumber + 1)).slice(-2); // 01, 02, ..., 12, 13. And so on.
-    const fileName = `${date.getFullYear()}_${date.getMonth() + 1}_${date.getDate()}_${fileNumber}`
+    const fileNumber = ("0" + (sessionNumber + START_FILE_NUMBER)).slice(-2); // START_No, 09, ..., 12, 13. And so on.
+    const fileName = `${date.getFullYear()}_${date.getMonth() + 1}_${date.getDate()}_${fileNumber}`;
     fs.writeFile(DIR + fileName + ".txt", sessionText, function (err) {
         if (err) {
             return console.log(err);

@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/memory_scripts.iml" filepath="$PROJECT_DIR$/.idea/memory_scripts.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/memory_similarity_matrix.iml" filepath="$PROJECT_DIR$/.idea/memory_similarity_matrix.iml" />
     </modules>
   </component>
 </project>
