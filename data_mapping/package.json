@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "dependencies": {
     "arraylist": "^0.1.0",
-    "firebase-admin": "latest"
+    "firebase-admin": "latest",
+    "xlsx": "^0.13.4"
   }
 }
