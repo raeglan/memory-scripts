@@ -91,7 +91,7 @@ async function handleSessions(sessionList) {
     const sheetNames = ['k', 'z', 'zm', 'zv', 'n', 'nm', 'nv']; // all the possible games
                                                                 // Klassisch, Zahl, Zahl Memory, Zahl Visual, Nebel,
                                                                 // Nebel Memory, Nebel Visual
-    const columns = ['Player No', 'Time (seconds)', 'Moves', 'Cards forgotten', 'Log Id']; // the data we want
+    const columns = ['Player No', 'Time (seconds)', 'Moves', 'Flops', 'Log Id']; // the data we want
     const sheets = new Array(sheetNames.length); // where it will be saved.
     // initializing all the sheets
     for (let i = 0; i < sheets.length; i++) {
