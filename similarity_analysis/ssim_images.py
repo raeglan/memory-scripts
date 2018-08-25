@@ -68,16 +68,24 @@ for x in range(FIRST_IMAGE_NUMBER, LAST_IMAGE_NUMBER + 1):
 # and our values should be floats.
 similarity_matrix = np.zeros((number_of_images, number_of_images), dtype=np.float)
 
+# similar to one another
+similarImages = 0
+
 array_range = range(0, number_of_images)
 for x in array_range:
     for y in array_range:
         x_image = images[x]
         y_image = images[y]
         similarity_index = ssim(x_image, y_image, data_range=max_range - min_range)
+        if 0.98 < similarity_index < 1:
+            similarImages = similarImages + 1
         similarity_matrix[x, y] = similarity_index
 
 # Interpolation
 interpolated_array = np.interp(similarity_matrix, (similarity_matrix.min(), similarity_matrix.max()), (0, 1))
+
+# Logging outputs
+print(f"Similar images: {similarImages / 2}")
 
 # Saving the file
 with open(OUTPUT_FILE_NAME, 'w') as outfile:

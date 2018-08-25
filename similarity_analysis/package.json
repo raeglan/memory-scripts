@@ -1,0 +1,16 @@
+{
+  "name": "similarity_analysis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ssim_to_table.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "npm": "^6.4.0",
+    "xlsx": "^0.13.4"
+  }
+}
